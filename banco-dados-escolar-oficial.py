@@ -206,7 +206,7 @@ print('\033[34mBANCO DE DADOS ESCOLAR\033[m \033[37mV1.0\033[m')
 print(27*'-')
 print()
 for b in 'CARREGANDO...':
-    print(f'{b}', end=' ')
+    print(f'{b}', end=' ', flush=True)
     sleep(0.25)
 print('\n')
 
@@ -228,6 +228,8 @@ while True:
         elif opc1 == 3:
             sair()
             exit()
+        else:
+            print('\033[31mOPÇÃO EXCEDEU A LISTA!\nTENTE NOVAMENTE.\033[m')
     except(ValueError, TypeError):
         print("\033[31mOPÇÃO INVÁLIDA! TENTE NOVAMENTE.\033[m")
 
@@ -276,3 +278,4 @@ while menu:
         continue
     menu = False
     break
+
