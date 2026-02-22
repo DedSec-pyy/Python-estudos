@@ -33,4 +33,4 @@ No terminal:
 
 -------------------------------------------------------
 
-Projeto 2 - Controle financeiro simples (em desenvolvimento - 19/02/2026)
+Projeto 2 - Controle de validade simples c/exportação p/.csv ou excel (em desenvolvimento - 19/02/2026)
