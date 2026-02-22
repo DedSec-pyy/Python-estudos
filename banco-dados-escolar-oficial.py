@@ -247,8 +247,8 @@ menu = True
 while menu:
     print('1 - Cadastrar aluno(a).\n2 - Banco de alunos.')
     if tipo_usuario == "admin":
-        print('3 - Editar/Remover aluno\n')
-    print('4 - Sair\n')
+        print('3 - Editar/Remover aluno.')
+    print('4 - Sair.\n')
     try:
         opc = int(input(f'<\033[35m{usuario_logado}\033[m>: '))
         if opc == 1:
@@ -273,9 +273,13 @@ while menu:
         elif opc == 4:
             sair()
             break
+        else:
+            print('\033[31mOPÇÃO INVÁLIDA! TENTE NOVAMENTE.\033[m')
+            continue
     except(ValueError, TypeError):
         print('\033[31mOPÇÃO INVÁLIDA! TENTE NOVAMENTE.\033[m')
         continue
     menu = False
     break
+
 
