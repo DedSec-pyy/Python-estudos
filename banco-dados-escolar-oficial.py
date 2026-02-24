@@ -1,6 +1,6 @@
 """
 SISTEMA DE BANCO DE DADOS ESCOLAR
-V1.1 (bug fixes)
+V1.2
 
 By: DedSec-pyy (2026)
 
@@ -142,6 +142,7 @@ def cadastrar():
                                 continue
                             controle3 = False
                             break
+                    print(f"\033[35m{nome}\033[m \033[32mFOI CADASTRADO COM SUCESSO!\033[m\n")
                     break
                 else:
                     print('\033[31mVALOR ESTÁ ABAIXO OU ULTRAPASSOU O LIMITE!\033[m')
@@ -149,8 +150,6 @@ def cadastrar():
             except(ValueError, TypeError):
                 print('\033[31mAPENAS NÚMEROS INTEIROS SÃO VÁLIDOS!\033[m')
                 continue
-            finally:
-                print(f"\033[35m{nome}\033[m \033[32mFOI CADASTRADO COM SUCESSO!\033[m")
     geral.append(alunos)
     salvar_arquivo()
 
