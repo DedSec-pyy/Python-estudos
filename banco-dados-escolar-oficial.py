@@ -1,6 +1,6 @@
 """
 SISTEMA DE BANCO DE DADOS ESCOLAR
-V1.0
+V1.1 (bug fixes)
 
 By: DedSec-pyy (2026)
 
@@ -121,6 +121,8 @@ def cadastrar():
                         while True:
                             try:
                                 nota = float(input(f'Insira a {c}° nota de {nome}: '))
+                                if c == total+1:
+                                    break
                                 if 0 <= nota <= 10:
                                     notas.append(nota)
                                     alunos['notas'] = notas
@@ -129,23 +131,26 @@ def cadastrar():
                                     if media >= 7:
                                         alunos['resultado'] = "\033[32mAPROVADO!\033[m"
                                     elif 5 <= media < 7:
-                                        alunos['resultado'] = "\033[33mRECUPERAÇÃO.\033[m"
+                                        alunos['resultado'] = "\033[33mRECUPERAÇÃO\033[m"
                                     else:
-                                        alunos['resultado'] = "\033[32mREPROVADO.\033[m"
-                                    break
+                                        alunos['resultado'] = "\033[31mREPROVADO\033[m"
                                 else:
                                     print('\033[31mA NOTA DEVE ESTAR ENTRE\033[m \033[36m1.0 - 10.0\033[m!')
+                                    continue
                             except(ValueError, TypeError):
                                 print('\033[31mVALOR INVÁLIDO! TENTE NOVAMENTE. (Ex: 3.5)\033[m')
                                 continue
                             controle3 = False
                             break
+                    break
                 else:
                     print('\033[31mVALOR ESTÁ ABAIXO OU ULTRAPASSOU O LIMITE!\033[m')
                     continue
             except(ValueError, TypeError):
                 print('\033[31mAPENAS NÚMEROS INTEIROS SÃO VÁLIDOS!\033[m')
                 continue
+            finally:
+                print(f"\033[35m{nome}\033[m \033[32mFOI CADASTRADO COM SUCESSO!\033[m")
     geral.append(alunos)
     salvar_arquivo()
 
@@ -229,7 +234,7 @@ while True:
             sair()
             exit()
         else:
-            print('\033[31mOPÇÃO EXCEDEU A LISTA!\nTENTE NOVAMENTE.\033[m')
+            print('\033[31mOPÇÃO EXCEDEU A LISTA! \nTENTE NOVAMENTE.\033[m')
     except(ValueError, TypeError):
         print("\033[31mOPÇÃO INVÁLIDA! TENTE NOVAMENTE.\033[m")
 
@@ -245,10 +250,10 @@ else:
 menu = True
 
 while menu:
-    print('1 - Cadastrar aluno(a).\n2 - Banco de alunos.')
+    print('1 - Cadastrar aluno(a).\n2 - Banco de alunos')
     if tipo_usuario == "admin":
-        print('3 - Editar/Remover aluno.')
-    print('4 - Sair.\n')
+        print('3 - Editar/Remover aluno')
+    print('4 - Sair\n')
     try:
         opc = int(input(f'<\033[35m{usuario_logado}\033[m>: '))
         if opc == 1:
@@ -281,5 +286,3 @@ while menu:
         continue
     menu = False
     break
-
-
